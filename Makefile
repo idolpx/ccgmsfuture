@@ -41,13 +41,14 @@ $(EXO_PATH):
 	$(MAKE) -C exomizer/src CFLAGS="-Wall -Wstrict-prototypes -pedantic -O3"
 	cp exomizer/src/exomizer build/bin
 
-build/rs232.lib: rs232lib/c64.inc rs232lib/rs232.inc rs232lib/rs232_kernal.inc rs232lib/rs232.s rs232lib/rs232_swiftlink.s rs232lib/rs232_up9600.s rs232lib/rs232_userport.s
+build/rs232.lib: rs232lib/c64.inc rs232lib/rs232.inc rs232lib/rs232_kernal.inc rs232lib/rs232.s rs232lib/rs232_swiftlink.s rs232lib/rs232_up9600.s rs232lib/rs232_userport.s rs232lib/rs232_mliec.s
 	mkdir -p build
 	ca65 -g rs232lib/rs232.s -o build/rs232.o
 	ca65 -g rs232lib/rs232_userport.s -o build/rs232_userport.o
+	ca65 -g rs232lib/rs232_mliec.s -o build/rs232_mliec.o
 	ca65 -g rs232lib/rs232_up9600.s -o build/rs232_up9600.o
 	ca65 -g rs232lib/rs232_swiftlink.s -o build/rs232_swiftlink.o
-	ar65 a build/rs232.lib build/rs232.o build/rs232_userport.o build/rs232_up9600.o build/rs232_swiftlink.o
+	ar65 a build/rs232.lib build/rs232.o build/rs232_userport.o build/rs232_mliec.o build/rs232_up9600.o build/rs232_swiftlink.o
 
 build/disk.d64:
 	c1541 -format ccgms,fu d64 build/disk.d64

@@ -155,7 +155,7 @@ f7chgk
 	bcc @incmod
 	jmp @mod2
 @mod1:	pla
-	cmp #5		; max # of modems
+	cmp #6		; max # of modems
 	bcc @incmod
 @mod2:	lda #0
 	sta modem_type
@@ -241,6 +241,7 @@ op2txt:
 	.byte "Swift / Turbo DE  "
 	.byte "Swift / Turbo DF  "
 	.byte "Swift / Turbo D7  "
+	.byte "Meatloaf IEC      "
 
 op6txt:
 	.byte "Standard"

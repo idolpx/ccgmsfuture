@@ -56,6 +56,7 @@ Must be set to the driver/config.
         MODEM_TYPE_SWIFTLINK_DE	= 2
         MODEM_TYPE_SWIFTLINK_DF	= 3
         MODEM_TYPE_SWIFTLINK_D7	= 4
+        MODEM_TYPE_MEATLOAF_IEC	= 5
 
 ### `baud_rate`
 
